@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas Video</title>
+</head>
+<body>
+    <canvas id="canvas_video" width="500" height="300"></canvas>
+    <button id="clickBtn">click</button>
+</body>
+<script>
+    document.getElementById('clickBtn').addEventListener('click', () => {
+        vdo.pause()
+    }, false)
+</script>
+<script>
+    var canvas_video = document.getElementById('canvas_video')
+    var ctx_video = canvas_video.getContext('2d')
+
+    var vdo = document.createElement('video')
+    vdo.setAttribute('src', 'http://media.cdn.kuwo.cn/resource/m1/webkge/2015/7/10/201507101126_4.mp4')
+    vdo.setAttribute('autoplay', 'autoplay')
+
+    vdo.addEventListener('play', () => {
+        let timer = setInterval(() => {
+            ctx_video.drawImage(vdo, 0, 0, 270, 135)
+            console.log(vdo.currentTime)
+            if (vdo.ended) {
+                clearInterval(timer)
+            }
+        }, 20)
+    })
+</script>
+</html>

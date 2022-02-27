@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas Rect</title>
+</head>
+<body>
+    <canvas id="canvas_4" width="500" height="500"></canvas>
+</body>
+<script>
+    var canvas_4 = document.getElementById('canvas_4')
+    var ctx_4 = canvas_4.getContext('2d')
+    ctx_4.beginPath()
+    ctx_4.rect(50, 50, 100, 200)
+    ctx_4.strokeStyle = '#0ff'
+    ctx_4.fillStyle = 'yellowblue'
+    ctx_4.lineWidth = '10'
+    ctx_4.stroke()
+    ctx_4.fill()
+    ctx_4.closePath()
+</script>
+</html>

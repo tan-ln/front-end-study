@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas Line</title>
+</head>
+<body>
+    <canvas id="canvas_3" width="300" height="200"></canvas>
+</body>
+<script>
+    var canvas_3 = document.getElementById('canvas_3')
+    // 拿到一个CanvasRenderingContext2D对象
+    var ctx_3 = canvas_3.getContext('2d')
+
+    ctx_3.beginPath()
+    // 将路径移动到
+    ctx_3.moveTo(0, 40)
+    // 画一条line1
+    ctx_3.lineTo(100, 40)
+    ctx_3.strokeStyle = 'red'
+    ctx_3.lineWidth = '10'
+
+    // line2
+    ctx_3.lineTo(100, 200)
+    // 交界时的边角类型
+    ctx_3.lineJoin = 'round'
+    ctx_3.stroke()
+    ctx_3.closePath()
+// -----------------------
+    ctx_3.beginPath()
+    ctx_3.moveTo(150, 40)
+    // 结束端点样式
+    ctx_3.lineCap = 'round'
+    ctx_3.lineTo(75, 120)
+    ctx_3.strokeStyle = 'green'
+    ctx_3.lineWidth = '5'
+    ctx_3.stroke()
+    ctx_3.closePath()
+    // -----------------------
+    var gradient = ctx_3.createLinearGradient(0, 0, canvas_3.clientWidth, 0)
+    gradient.addColorStop('0', 'blue')
+    gradient.addColorStop('0.5', 'red')
+    gradient.addColorStop('1', 'yellow')
+    ctx_3.beginPath()
+    ctx_3.moveTo(200, 40)
+    ctx_3.lineTo(300, 200)
+    ctx_3.strokeStyle = gradient
+    ctx_3.stroke()
+    ctx_3.closePath()
+</script>
+</html>

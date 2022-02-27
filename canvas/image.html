@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas Image</title>
+</head>
+<body>
+    <canvas id="canvas_image" width="1920" height="1080"></canvas>
+</body>
+<script>
+    var canvas_image = document.getElementById('canvas_image')
+    var ctx_image = canvas_image.getContext('2d')
+
+    var imgObj = new Image()
+    imgObj.src = 'http://linweb.applinzi.com/mui_zzj_show/images/cbd.jpg'
+
+    // 图片加载完成后显示在 canvas
+    imgObj.onload = function () {
+        // imgObj 原始大小
+        ctx_image.drawImage(this, 0, 0)
+        // 1920*1080
+        // ctx_image.drawImage(this, 0, 0, 1920, 1080)
+    }
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas Graph</title>
+</head>
+<body>
+    <canvas id="canvas_2" width="300" height="200"></canvas>
+</body>
+<script>
+    var canvas_2 = document.getElementById('canvas_2')
+    // 拿到一个CanvasRenderingContext2D对象
+    var ctx_2 = canvas_2.getContext('2d')
+
+    for (var i = 0; i < 5; i++) {
+        ctx_2.beginPath()
+        // context.arc(x,y,r,sAngle,eAngle,counterclockwise);
+        // x坐标，y坐标，半径，起始角度（弧度），结束角度，顺时针/逆时针
+        ctx_2.arc(30 + i*50, 30, 20, 0, 2*Math.PI*(i+1)/5)
+        ctx_2.strokeStyle = 'blue'
+        ctx_2.fillStyle = '#ff6300'
+        ctx_2.lineWidth = '5'
+        ctx_2.closePath()
+        ctx_2.stroke()
+        ctx_2.fill()
+    }
+
+    ctx_2.beginPath()
+    ctx_2.arc(30, 120, 20, 0, Math.PI * 1.25)
+    ctx_2.strokeStyle = 'green'
+    ctx_2.lineWidth = '20'
+    ctx_2.stroke()
+    ctx_2.closePath()
+</script>
+</html>

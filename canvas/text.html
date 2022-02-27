@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas Text</title>
+</head>
+
+<body>
+    <canvas id="canvas1" width="300" height="200">
+        <p>你的浏览器不支持 canvas</p>
+    </canvas>
+</body>
+<script>
+    // 获取绘图区域
+    var canvas1 = document.getElementById('canvas1')
+    //让我们拿到一个CanvasRenderingContext2D对象
+    var ctx1 = canvas1.getContext('2d')
+    // 擦除（变透明）位置为(0, 0) 大小为 canvas1.width, canvas1.height
+    ctx1.clearRect(0, 0, canvas1.width, canvas1.height)
+    // 开始
+    ctx1.beginPath()
+    // 设置阴影
+    ctx1.shadowOffsetX = 2
+    ctx1.shadowOffsetY = 2
+    // 模糊
+    ctx1.shadowBlur = 2
+    ctx1.shadowColor = '#666'
+
+    // 阴影
+    ctx1.font = '24px Arial'
+    ctx1.fillStyle = '#333'
+    ctx1.fillText('带阴影的文字', 20, 40)
+
+    // 空心
+    ctx1.font = '30px Georgia'
+    ctx1.strokeText('空心文本', 20, 80)
+
+    // 渐变
+    var gradient = ctx1.createLinearGradient(0, 0, canvas1.width, 0)
+    gradient.addColorStop('0', 'magenta')
+    gradient.addColorStop('0.5', 'blue')
+    gradient.addColorStop('1', 'red')
+    ctx1.fillStyle = gradient
+    ctx1.fillText('渐变文字', 20, 120)
+
+    ctx1.closePath()
+    console.log(ctx1)
+</script>
+
+</html>
